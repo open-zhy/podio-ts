@@ -9,11 +9,11 @@ interface Splitable {
  * @param key 
  * @param defaultValue 
  */
-export function getValue<T, K extends keyof T, D> (
-  data: T,
-  key: K,
-  defaultValue?: D,
-): T[K] | D | undefined {
+export function getValue (
+  data: any,
+  key: string,
+  defaultValue?: any,
+): any | undefined {
   let r: any = data;
   const path = (key as Splitable).split(".");
 
@@ -29,5 +29,5 @@ export function getValue<T, K extends keyof T, D> (
     },
   );
 
-  return r as T[K] | D | undefined;
+  return r as any;
 };
