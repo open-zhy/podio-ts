@@ -1,3 +1,7 @@
+interface Splitable {
+  split(s: string): string[],
+}
+
 /**
  * Get value through an object or object
  * 
@@ -5,13 +9,13 @@
  * @param key 
  * @param defaultValue 
  */
-export const getValue = (
-  data: any,
-  key: string,
-  defaultValue: any = undefined,
-): any => {
-  let r = data;
-  const path = key.split(".");
+export function getValue<T, K extends keyof T, D> (
+  data: T,
+  key: K,
+  defaultValue?: D,
+): T[K] | D | undefined {
+  let r: any = data;
+  const path = (key as Splitable).split(".");
 
   path.some(
     (k: string): boolean => {
@@ -25,5 +29,5 @@ export const getValue = (
     },
   );
 
-  return r;
+  return r as T[K] | D | undefined;
 };

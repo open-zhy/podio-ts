@@ -32,3 +32,9 @@ export type PasswordAuthData = {
   useranme: string;
   password: string;
 };
+
+export type AuthDataRequest =
+  | RefreshTokenAuthData
+  | CodeAuthData
+  | AppAuthData
+  | PasswordAuthData;

@@ -1,8 +1,8 @@
 import { PodioError } from "../lib/error.ts";
 import { OAuthObject } from "../lib/oauth.d.ts";
-import { PodioResponse } from "../transport/response.ts";
-import { StoreIO } from "../store/store.d.ts";
 import { EventHandler } from "../lib/event.ts";
+import { StoreIO } from "../store/store.d.ts";
+import { PodioResponse } from "../transport/response.ts";
 import { RequestOptions } from "./request.d.ts";
 
 export const HTTP_GET = "GET";

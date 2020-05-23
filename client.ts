@@ -6,10 +6,7 @@ import { ClientIO } from "./client.d.ts";
 import {
   OAuthObject,
   GrantType,
-  RefreshTokenAuthData,
-  CodeAuthData,
-  AppAuthData,
-  PasswordAuthData,
+  AuthDataRequest,
 } from "./lib/oauth.d.ts";
 
 const API_URL = "https://api.podio.com:443";
@@ -71,11 +68,7 @@ export class Client extends ClientRequest implements ClientIO {
    */
   async authenticate(
     grantType: GrantType,
-    authData:
-      | RefreshTokenAuthData
-      | CodeAuthData
-      | AppAuthData
-      | PasswordAuthData,
+    authData: AuthDataRequest,
   ): Promise<PodioError | OAuthObject | PodioResponse> {
     if (this.store) {
       const oauth = await this.store.get(grantType, authData);
