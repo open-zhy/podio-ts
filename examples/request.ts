@@ -20,7 +20,7 @@ import { PodioResponse } from "../transport/response.ts";
             "x-rate-limit-remaining",
             "x-rate-limit-limit",
             "x-podio-auth-ref",
-          ].indexOf(key) >= 0
+          ].includes(key)
         ) {
           console.log(`--> ${key}=${value}`);
         }

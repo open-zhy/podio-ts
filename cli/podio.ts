@@ -112,7 +112,7 @@ const [method, requestUri] = res._;
   }
 
   // prepare body if needed
-  if (body && ["POST", "PUT"].indexOf(request[0]) >= 0) {
+  if (body && ["POST", "PUT"].includes(request[0])) {
     request[2] = {
       body: JSON.parse(body),
     };

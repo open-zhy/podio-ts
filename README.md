@@ -2,7 +2,7 @@
 
 This module aims to provide a Podio client implementation for [Deno](https://deno.land/) and/or general Typescript programming
 
-![test](https://github.com/open-zhy/podio-ts/workflows/test/badge.svg)
+![test](https://github.com/open-zhy/podio-ts/workflows/CI/badge.svg)
 
 # Basic Usage
 ### Import
@@ -88,7 +88,7 @@ podio.event?.on("podio.response", (response: PodioResponse) => {
           "x-rate-limit-remaining",
           "x-rate-limit-limit",
           "x-podio-auth-ref",
-        ].indexOf(key) >= 0
+        ].includes(key)
       ) {
         console.log(`--> ${key}=${value}`);
       }
